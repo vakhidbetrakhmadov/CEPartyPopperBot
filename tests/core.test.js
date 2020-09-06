@@ -1,6 +1,6 @@
 const core = require('../source/core');
 
-test('produces 2x2 grid of ones 1s', () => {
+test('produces 2x2 grid of 1s', () => {
     expect(core.grid(2, 2, () => 1)).toEqual([[1, 1], [1, 1]]);
 });
 
