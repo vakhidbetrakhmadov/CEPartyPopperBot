@@ -69,7 +69,7 @@ class CallendarKeyboard {
     static daysKeyboard(month, year) {
         const keyboard = daysGrid(month, year, 7);
         keyboard.push(
-            [`${MONTHES[month]} ${year}`],
+            [`${MONTHS[month]} ${year}`],
             ['Reset']
         );
         return keyboard;
@@ -77,7 +77,7 @@ class CallendarKeyboard {
 
     static doneKeyboard(day, month, year) { 
         return [
-            [`${day} ${MONTHES[month]} ${year}`],
+            [`${day} ${MONTHS[month]} ${year}`],
             ['Done']
         ];
     };
@@ -101,7 +101,9 @@ class CallendarKeyboard {
     };
 
     _selectMonth(key) { 
-        if (key === 'Reset') { 
+        if (key === this._state.selectedYear) { 
+            // stay on the same state
+        } else if (key === 'Reset') { 
             this._state = CallendarKeyboard._INITIAL_STATE;
         } else {
             this._state = {
@@ -112,8 +114,10 @@ class CallendarKeyboard {
         }
     };
 
-    _selectDay(key) { 
-        if (key === 'Reset') { 
+    _selectDay(key) {
+        if (key === `${MONTHS[this._state.selectedMonth]} ${this._state.selectedYear}`) { 
+            // stay on the same state
+        } else if (key === 'Reset') { 
             this._state = CallendarKeyboard._INITIAL_STATE;
         } else {
             this._state = { 
@@ -143,7 +147,7 @@ class CallendarKeyboard {
     static get _MAX_YEARS_SPAN() { return 12; };
 };
 
-const { MONTHES } = require('./constants');
+const { MONTHS } = require('./constants');
 const { yearsGrid, monthsGrid, daysGrid, currentYear } = require('./core');
 
 module.exports = CallendarKeyboard;

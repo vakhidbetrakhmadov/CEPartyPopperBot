@@ -20,7 +20,7 @@ function yearsGrid(from, to, width) {
 };
 
 function monthsGrid(width) { 
-    const entries = Object.entries(MONTHES);
+    const entries = Object.entries(MONTHS);
     const height = Math.ceil(entries.length / width);
     const iterator = entries[Symbol.iterator]();
     return grid(height, width, () => {
@@ -49,7 +49,7 @@ function currentYear() {
     return new Date().getFullYear();
 };
 
-const { MONTHES } = require('./constants');
+const { MONTHS } = require('./constants');
 
 module.exports = { 
     grid, 

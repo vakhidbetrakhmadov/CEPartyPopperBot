@@ -13,7 +13,7 @@ test('produces 3x4 grid of years from 1994 to 2004', () => {
     ]);
 });
 
-test('produces 3x4 grid of all monthes', () => { 
+test('produces 3x4 grid of all months', () => { 
     expect(core.monthsGrid(3)).toEqual([
         ['Jan', 'Feb', 'Mar'],
         ['Apr', 'May', 'Jun'],

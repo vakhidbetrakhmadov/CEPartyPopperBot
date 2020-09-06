@@ -6,6 +6,9 @@
   "directories": {
     "test": "tests"
   },
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "jest": "^26.4.2",
     "node-telegram-bot-api": "^0.50.0",
