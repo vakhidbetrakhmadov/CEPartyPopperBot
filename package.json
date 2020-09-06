@@ -1,0 +1,17 @@
+{
+  "name": "cepartypopperbot",
+  "version": "1.0.0",
+  "description": "CE Party Popper Bot",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "jest": "^26.4.2",
+    "node-telegram-bot-api": "^0.50.0",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {},
+  "author": "Vakhid Betrakhmadov",
+  "license": "ISC"
+}
