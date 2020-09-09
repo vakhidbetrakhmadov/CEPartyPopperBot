@@ -47,7 +47,11 @@ test('buildDate returns null when year, month or day is not set', () => {
         dateBuilder.setMonth(month);
         dateBuilder.setDay(day);
         // then  
-        expect(dateBuilder.buildDate()).toBe(testCase.output);
+        expect(
+            dateBuilder.buildDate()
+        ).toBe(
+            testCase.output
+        );
     });
 });
 
@@ -55,7 +59,14 @@ test('buildDate returns 2020-01-31 after calling setYear(2020), setMonth(1), set
     // given 
     const dateBuilder = new DateBuilder();
     // when 
-    dateBuilder.setYear(2020).setMonth(1).setDay(1)
+    dateBuilder
+        .setYear(2020)
+        .setMonth(1)
+        .setDay(1)
     // then
-    expect(dateBuilder.buildDate()).toEqual(new Date(2020, 1, 1));
+    expect(
+        dateBuilder.buildDate()
+    ).toEqual(
+        new Date(2020, 1, 1)
+    );
 });
