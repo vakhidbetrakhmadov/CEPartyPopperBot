@@ -1,3 +1,7 @@
+const PLACEHOLDER_CHAR = '\u200B'; // zero width space
+
+const LOGGER_ON = true;
+
 const NUMBER_TO_MONTHS = {
     1: 'Jan', 2: 'Feb', 3: 'Mar',
     4: 'Apr', 5: 'May', 6: 'Jun',
@@ -14,5 +18,7 @@ const MONTHS_TO_NUMBER = {
 
 module.exports = { 
     NUMBER_TO_MONTHS,
-    MONTHS_TO_NUMBER
+    MONTHS_TO_NUMBER,
+    LOGGER_ON,
+    PLACEHOLDER_CHAR
 };

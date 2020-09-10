@@ -1,3 +1,21 @@
+function logMessage(...messages) { 
+    if (!LOGGER_ON) return;
+    console.log('✉️  - Message - ✉️');
+    console.log(...messages);
+};
+
+function logError(...messages) { 
+    if (!LOGGER_ON) return;
+    console.log('❌  - Error - ❌');
+    console.log(...messages);
+};
+
+
+function logWarning(...messages) {
+    if (!LOGGER_ON) return;
+    console.log('⚠️  - Warning - ⚠️');
+    console.log(...messages);
+};
 
 function grid(height, width, next) { 
     const grid = [];
@@ -13,7 +31,7 @@ function grid(height, width, next) {
 function yearsGrid(from, to, width) {
     const height = Math.ceil((to - from) / width);
     return grid(height, width, () => {
-        const text = from < to ? from : '';
+        const text = from < to ? from : PLACEHOLDER_CHAR;
         from++;
         return text;
     });
@@ -25,7 +43,7 @@ function monthsGrid(width) {
     const iterator = entries[Symbol.iterator]();
     return grid(height, width, () => {
         const next = iterator.next();
-        const text = !next.done ? next.value[1] : '';
+        const text = !next.done ? next.value[1] : PLACEHOLDER_CHAR;
         return text;
     });
 };
@@ -35,7 +53,7 @@ function daysGrid(month, year, width) {
     const to = daysInMonth(month, year) + 1;
     const height = Math.ceil((to - from) / width);
     return grid(height, width, () => {
-        const text = from < to ? from : '';
+        const text = from < to ? from : PLACEHOLDER_CHAR;
         from++;
         return text;
     });
@@ -49,7 +67,11 @@ function currentYear() {
     return new Date().getFullYear();
 };
 
-const { NUMBER_TO_MONTHS } = require('./constants');
+const { 
+    NUMBER_TO_MONTHS, 
+    LOGGER_ON, 
+    PLACEHOLDER_CHAR 
+} = require('./constants');
 
 module.exports = { 
     grid, 
@@ -57,5 +79,8 @@ module.exports = {
     monthsGrid, 
     daysGrid,
     daysInMonth,
-    currentYear
+    currentYear,
+    logMessage,
+    logError,
+    logWarning
 };

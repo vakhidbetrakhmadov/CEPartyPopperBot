@@ -1,4 +1,5 @@
 const core = require('../source/core');
+const { PLACEHOLDER_CHAR } = require('../source/constants');
 
 test('produces 2x2 grid of 1s', () => {
     expect(
@@ -15,7 +16,7 @@ test('produces 3x4 grid of years from 1994 to 2004', () => {
         [1994, 1995, 1996],
         [1997, 1998, 1999],
         [2000, 2001, 2002],
-        [2003, '', '']
+        [2003, PLACEHOLDER_CHAR, PLACEHOLDER_CHAR]
     ]);
 });
 
@@ -30,7 +31,7 @@ test('produces 3x4 grid of all months', () => {
     ]);
 });
 
-test('', () => { 
+test('TODO', () => { 
     expect(
         core.daysGrid(1, 2020, 7)
     ).toEqual([
@@ -38,7 +39,7 @@ test('', () => {
         [8, 9, 10, 11, 12, 13, 14],
         [15, 16, 17, 18, 19 , 20, 21],
         [22, 23, 24, 25, 26 , 27, 28],
-        [29, 30, 31, '', '', '', '']
+        [29, 30, 31, PLACEHOLDER_CHAR, PLACEHOLDER_CHAR, PLACEHOLDER_CHAR, PLACEHOLDER_CHAR]
     ]);
 });
 

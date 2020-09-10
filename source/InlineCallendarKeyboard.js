@@ -6,6 +6,19 @@ class InlineCallendarKeyboard {
     };
 
     // - Public methods
+    title() { 
+        switch (this.callendarKeyboard.currentState) { 
+            case CallendarKeyboard.SELECT_YEAR:
+                return 'Select your birth year:';
+            case CallendarKeyboard.SELECT_MONTH:
+                return 'Select your birth month:';
+            case CallendarKeyboard.SELECT_DAY:
+                return 'Select your birth day:';
+            case CallendarKeyboard.DONE:
+                return 'Your birth date is:';
+        }
+    };
+
     currentKeyboard() { 
         const currentKeyboard = this.callendarKeyboard.currentKeyboard();
 

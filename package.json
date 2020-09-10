@@ -2,7 +2,7 @@
   "name": "cepartypopperbot",
   "version": "1.0.0",
   "description": "CE Party Popper Bot",
-  "main": "server.js",
+  "main": "main.js",
   "directories": {
     "test": "tests"
   },

@@ -1,5 +1,8 @@
 const CallendarKeyboard = require('../source/CallendarKeyboard');
 const { mockCurrentYearAndTest } = require('./core');
+const { PLACEHOLDER_CHAR } = require('../source/constants');
+
+// TODO: Add tests for taps on PLACEHOLDER_CHAR
 
 test('yearsKeyboard(1994, 2004) returns 3x6 keyboard of years with "<<", ">>" and "Reset" button', () => { 
     expect(
@@ -8,7 +11,7 @@ test('yearsKeyboard(1994, 2004) returns 3x6 keyboard of years with "<<", ">>" an
         [ 1994, 1995, 1996 ],
         [ 1997, 1998, 1999 ],
         [ 2000, 2001, 2002 ],
-        [ 2003, '', '' ],
+        [ 2003, PLACEHOLDER_CHAR, PLACEHOLDER_CHAR ],
         [ '<<', '>>' ],
         [ 'Reset' ]
     ]);
@@ -35,7 +38,7 @@ test('daysKeyboard(1, 2020) returns 7x7 keyboard of days with "Jan 2020" and "Re
         [ 8,  9, 10, 11, 12, 13, 14 ],
         [ 15, 16, 17, 18, 19, 20, 21 ],
         [ 22, 23, 24, 25, 26, 27, 28 ],
-        [ 29, 30, 31, '', '', '', '' ],
+        [ 29, 30, 31, PLACEHOLDER_CHAR, PLACEHOLDER_CHAR, PLACEHOLDER_CHAR, PLACEHOLDER_CHAR ],
         [ 'Jan 2020' ],
         [ 'Reset' ]
     ]);

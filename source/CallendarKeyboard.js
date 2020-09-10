@@ -114,7 +114,7 @@ class CallendarKeyboard {
             this._state.to -= CallendarKeyboard._MAX_YEARS_SPAN;
         } else if (key === 'Reset') {
             this._state = CallendarKeyboard._INITIAL_STATE;
-        } else {
+        } else if (key !== PLACEHOLDER_CHAR) { 
             this._state = { 
                 state: CallendarKeyboard.SELECT_MONTH,
                 selectedYear: key
@@ -127,7 +127,7 @@ class CallendarKeyboard {
             // stay on the same state
         } else if (key === 'Reset') { 
             this._state = CallendarKeyboard._INITIAL_STATE;
-        } else {
+        } else if (key !== PLACEHOLDER_CHAR) {
             this._state = {
                 state: CallendarKeyboard.SELECT_DAY,
                 selectedYear: this._state.selectedYear,
@@ -141,7 +141,7 @@ class CallendarKeyboard {
             // stay on the same state
         } else if (key === 'Reset') { 
             this._state = CallendarKeyboard._INITIAL_STATE;
-        } else {
+        } else if (key !== PLACEHOLDER_CHAR) {
             this._state = { 
                 state: CallendarKeyboard.DONE,
                 selectedYear: this._state.selectedYear,
@@ -152,7 +152,7 @@ class CallendarKeyboard {
     };
 };
 
-const { NUMBER_TO_MONTHS } = require('./constants');
+const { NUMBER_TO_MONTHS, PLACEHOLDER_CHAR } = require('./constants');
 const { yearsGrid, monthsGrid, daysGrid, currentYear } = require('./core');
 
 module.exports = CallendarKeyboard;
