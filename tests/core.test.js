@@ -1,6 +1,8 @@
 const core = require('../source/core');
 const { PLACEHOLDER_CHAR } = require('../source/constants');
 
+// TODO: Add tests for hexString, sha256
+
 test('produces 2x2 grid of 1s', () => {
     expect(
         core.grid(2, 2, () => 1)

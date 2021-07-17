@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "jest": "^26.4.2",
+    "mysql": "^2.18.1",
     "node-telegram-bot-api": "^0.50.0",
-    "readline-sync": "^1.4.10"
+    "readline-sync": "^1.4.10",
+    "sjcl": "^1.0.8"
   },
   "devDependencies": {},
   "author": "Vakhid Betrakhmadov",

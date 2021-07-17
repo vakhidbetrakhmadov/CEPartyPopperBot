@@ -1,9 +1,18 @@
+const CallendarKeyboard = require('./CallendarKeyboard');
+const { MONTHS_TO_NUMBER } = require('./constants');
+
 class InlineCallendarKeyboard { 
 
     // - Constructors
     constructor(callendarKeyboard) { 
         this.callendarKeyboard = callendarKeyboard;
     };
+
+    // - Public statatic constants
+    static get SELECT_YEAR() { return 'SELECT_YEAR'; };
+    static get SELECT_MONTH() { return 'SELECT_MONTH'; };
+    static get SELECT_DAY() { return 'SELECT_DAY'; };
+    static get DONE() { return 'DONE'; };
 
     // - Public methods
     title() { 
@@ -18,6 +27,19 @@ class InlineCallendarKeyboard {
                 return 'Your birth date is:';
         }
     };
+
+    get currentState() { 
+        switch (this.callendarKeyboard.currentState) { 
+            case CallendarKeyboard.SELECT_YEAR:
+                return InlineCallendarKeyboard.SELECT_YEAR;
+            case CallendarKeyboard.SELECT_MONTH:
+                return InlineCallendarKeyboard.SELECT_MONTH;
+            case CallendarKeyboard.SELECT_DAY:
+                return InlineCallendarKeyboard.SELECT_DAY;
+            case CallendarKeyboard.DONE:
+                return InlineCallendarKeyboard.DONE;
+        }
+    }
 
     currentKeyboard() { 
         const currentKeyboard = this.callendarKeyboard.currentKeyboard();
@@ -57,6 +79,3 @@ class InlineCallendarKeyboard {
 };
 
 module.exports = InlineCallendarKeyboard;
-
-const CallendarKeyboard = require('./CallendarKeyboard');
-const { MONTHS_TO_NUMBER } = require('./constants');

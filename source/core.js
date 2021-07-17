@@ -1,3 +1,6 @@
+const sjcl = require("sjcl");
+const { NUMBER_TO_MONTHS, LOGGER_ON, PLACEHOLDER_CHAR } = require('./constants');
+
 function logMessage(...messages) { 
     if (!LOGGER_ON) return;
     console.log('✉️  - Message - ✉️');
@@ -67,11 +70,15 @@ function currentYear() {
     return new Date().getFullYear();
 };
 
-const { 
-    NUMBER_TO_MONTHS, 
-    LOGGER_ON, 
-    PLACEHOLDER_CHAR 
-} = require('./constants');
+function hexString(number) { 
+    return (number >>> 0).toString(16);
+};
+
+function sha256(data) { 
+    return sjcl.hash.sha256.hash(data)
+        .map(hexString)
+        .reduce((acc, str) => acc + str);
+};
 
 module.exports = { 
     grid, 
@@ -82,5 +89,7 @@ module.exports = {
     currentYear,
     logMessage,
     logError,
-    logWarning
+    logWarning,
+    hexString,
+    sha256
 };

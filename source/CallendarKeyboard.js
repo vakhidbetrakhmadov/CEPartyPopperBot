@@ -1,3 +1,6 @@
+const { NUMBER_TO_MONTHS, PLACEHOLDER_CHAR } = require('./constants');
+const { yearsGrid, monthsGrid, daysGrid, currentYear } = require('./core');
+
 class CallendarKeyboard { 
 
     // - Constructors
@@ -151,8 +154,5 @@ class CallendarKeyboard {
         }
     };
 };
-
-const { NUMBER_TO_MONTHS, PLACEHOLDER_CHAR } = require('./constants');
-const { yearsGrid, monthsGrid, daysGrid, currentYear } = require('./core');
 
 module.exports = CallendarKeyboard;
